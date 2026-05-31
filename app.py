@@ -96,15 +96,15 @@ def main():
     st.markdown("Cari film/acara TV Netflix berdasarkan judul. **Tidak perlu ketik lengkap!**")
 
     # Upload File atau Gunakan Path Lokal
-    uploaded_file = st.file_uploader("Upload file CSV dataset Anda:", type=["csv"])
+    # uploaded_file = st.file_uploader("Upload file CSV dataset Anda:", type=["csv"])
     
     df = None
-    if uploaded_file is not None:
-        df = load_data(uploaded_file)
-    elif os.path.exists("Netflix_movies_and_tv_shows.csv"):
+   # if uploaded_file is not None:
+    #    df = load_data(uploaded_file)
+    if os.path.exists("Netflix_movies_and_tv_shows.csv"):
         df = load_data("Netflix_movies_and_tv_shows.csv")
-    else:
-        st.warning("⚠️ Silakan upload file `Netflix_movies_and_tv_shows.csv` atau letakkan di folder yang sama dengan `app.py`.")
+    #else:
+       # st.warning("⚠️ Silakan upload file `Netflix_movies_and_tv_shows.csv` atau letakkan di folder yang sama dengan `app.py`.")
 
     if df is not None and not df.empty:
         if "engine_ready" not in st.session_state:
